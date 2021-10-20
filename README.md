@@ -10,6 +10,7 @@ looking to create back-end template while implementing the following :
 - **`SignUp `**
 - **`Auth`**
 - **`CRUD`** : `for clarifying purpose`
+- **`MongoDB`**
 - **`SocketIO`**
 - **`RabbitMQ`**
 - **`Redis`**
@@ -39,3 +40,14 @@ feel free to fork > clone > play around and participate with your changes
    ```
 
 1. Test at [http://localhost:7080/docs](http://localhost:7080/docs)
+
+---
+#### Done so far :
+- [ ] **`SignIn`**
+- [X] **`SignUp `**
+- [X] **`Auth`**
+- [ ] **`CRUD`** : `for clarifying purpose`
+- [X] **`MongoDB`**
+- [ ] **`SocketIO`**
+- [ ] **`RabbitMQ`**
+- [ ] **`Redis`**
