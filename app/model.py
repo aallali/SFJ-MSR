@@ -1,4 +1,6 @@
 from pydantic import BaseModel, Field, EmailStr
+from typing import Optional
+from datetime import datetime, timezone
 
 
 class PostSchema(BaseModel):
@@ -10,33 +12,44 @@ class PostSchema(BaseModel):
         schema_extra = {
             "example": {
                 "title": "Securing FastAPI applications with JWT.",
-                "content": "In this tutorial, you'll learn how to secure your application by enabling authentication using JWT. We'll be using PyJWT to sign, encode and decode JWT tokens...."
+                "content": "Lorem Lepsum !, lorem lepsum Lorem Lepsum  lorem lepsum lorem lepsum,  lorem lepsum?  lorem lepsum"
             }
         }
 
 
 class UserSchema(BaseModel):
     fullname: str = Field(...)
+    username: str = Field(...)
     email: EmailStr = Field(...)
     password: str = Field(...)
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
+    token: str = ""
 
     class Config:
+        json_encoders = {
+            datetime: lambda dt: dt.replace(tzinfo=timezone.utc)
+            .isoformat()
+            .replace("+00:00", "Z")
+        }
         schema_extra = {
             "example": {
                 "fullname": "Abdellah Allali",
-                "email": "hello@mama.sita",
-                "password": "weakpassword"
+                "username": "admin",
+                "email": "contact@allali.me",
+                "password": "rooter"
             }
         }
 
+
 class UserLoginSchema(BaseModel):
-    email: EmailStr = Field(...)
     password: str = Field(...)
+    username: str = ield(...)
 
     class Config:
         schema_extra = {
             "example": {
-                "email": "hello@mama.sita",
-                "password": "weakpassword"
+                "user": "rooter",
+                "password": "rooter"
             }
         }
